@@ -206,7 +206,7 @@ JMH, JDK 25, Linux arm64, catalogue de commandes : « petit » = 1 commande et 1
 | Fidelis JSON | 2,20 | 1,98 | 2,96 | 3,25 | 1 519 |
 | **Fory JSON 1.7** | **0,83** | **0,98** | **1,13** | **1,19** | 1 458 |
 | fastjson2 2.0 | 2,71 | 2,21 | 2,15 | 1,83 | 1 466 |
-| Jackson 2.17 | 3,33 | 3,74 | 7,72 | 7,58 | 1 458 |
+| Jackson 2.22 | 3,33 | 3,74 | 7,72 | 7,58 | 1 458 |
 | Gson 2.10 | 7,73 | 7,52 | 8,09 | 7,40 | 1 458 |
 
 En gras : le meilleur de sa famille. Kryo et Fory binaire ont le suivi des références activé (même sémantique d'identité que Fidelis). Les autres JSON ne conservent ni identité, ni cycles, ni polymorphisme : le catalogue mesuré est un arbre qu'ils relisent correctement, mais ils ne relisent pas un graphe partagé ou cyclique. Fory lit et écrit l'intérieur des chaînes par `sun.misc.Unsafe`, au prix de l'avertissement du JDK 24+.
@@ -221,7 +221,7 @@ Tout ce qu'il faut ajouter à une application pour s'en servir, dépendances tra
 | Gson 2.10 | JSON | gson | 0,28 Mo |
 | Kryo 5.6 | binaire | kryo, reflectasm, objenesis, minlog | 0,50 Mo |
 | fastjson2 2.0 | JSON | fastjson2 | 2,08 Mo |
-| Jackson 2.17 | JSON | jackson-databind, jackson-core, jackson-annotations | 2,31 Mo |
+| Jackson 2.22 | JSON | jackson-databind, jackson-core, jackson-annotations | 2,39 Mo |
 | Fory 1.7 | binaire | fory-core, janino, commons-compiler | 3,88 Mo |
 | Fory JSON 1.7 | JSON (et binaire) | fory-json, fory-core, janino, commons-compiler | 5,04 Mo |
 
